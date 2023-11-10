@@ -5,8 +5,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from model import NeuralNet
+import constants
+from misc_utils import file_exists
 
-with open('example.intents.json', 'r') as f:
+with open(constants.INTENTS if file_exists(constants.INTENTS) else constants.EXAMPLE_INTENTS, 'r') as f:
     intents = json.load(f)
 
 all_words = []

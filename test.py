@@ -1,5 +1,7 @@
 import unittest
 from nltk_utils import tokenize, stem, bag_of_words
+import constants
+from misc_utils import file_exists
 
 class TestNLTKUtils(unittest.TestCase):
     def test_tokenize(self):
@@ -29,6 +31,18 @@ class TestNLTKUtils(unittest.TestCase):
         result = bag_of_words(tokenized_sentence, all_words)
         expected = [1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0]
         self.assertListEqual(result.tolist(), expected)
-        
+
+    def test_file_exists(self):
+        """
+        Test if a file exists or not
+        """
+        result = file_exists(constants.EXAMPLE_INTENTS)
+        expected = True
+        self.assertEqual(result, expected)
+
+        result = file_exists('does_not_exist.json')
+        expected = False
+        self.assertEqual(result, expected)
+
 if __name__ == '__main__':
     unittest.main()

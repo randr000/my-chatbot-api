@@ -1,5 +1,5 @@
 import unittest
-from nltk_utils import tokenize, stem
+from nltk_utils import tokenize, stem, bag_of_words
 
 class TestNLTKUtils(unittest.TestCase):
     def test_tokenize(self):
@@ -19,6 +19,16 @@ class TestNLTKUtils(unittest.TestCase):
         result = [stem(word) for word in words]
         expected = ['actual', 'actual', 'actual', 'actual']
         self.assertEqual(result, expected)
+    
+    def test_bag_of_words(self):
+        """
+        Test that a tokenized sentence is properly converted into a bag of words
+        """
+        tokenized_sentence = ["the", "dog", "fetched", "a", "ball"]
+        all_words = [stem(w) for w in ["the", "cat", "dog", "mouse", "fetched", "yarn", "cheese", "ball"]]
+        result = bag_of_words(tokenized_sentence, all_words)
+        expected = [1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0]
+        self.assertListEqual(result.tolist(), expected)
         
 if __name__ == '__main__':
     unittest.main()

@@ -23,16 +23,3 @@ def bag_of_words(tokenized_sentence, all_words):
         if w in tokenized_sentence:
             bag[idx] = 1.0
     return bag
-
-# a = "How long does shipping take?"
-# a = tokenize(a)
-# print(a)
-
-# words = ['organize', 'organizes', 'organizing']
-# stemmed_words = [stem(word) for word in words]
-# print(stemmed_words)
-
-# tokenized_sentence = ["the", "dog", "fetch", "a", "ball"]
-# all_words = ["the", "cat", "dog", "mouse", "fetch", "yarn", "cheese", "ball"]
-# bag = [1, 0, 1, 0, 1, 0, 0, 1]
-# print(bag_of_words(tokenized_sentence, all_words))

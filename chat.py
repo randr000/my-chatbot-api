@@ -3,10 +3,12 @@ import json
 import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
+import constants
+from misc_utils import file_exists
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('example.intents.json', 'r') as f:
+with open(constants.INTENTS if file_exists(constants.INTENTS) else constants.EXAMPLE_INTENTS, 'r') as f:
     intents = json.load(f)
 
 FILE = 'example.data.pth'

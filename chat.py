@@ -11,7 +11,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open(constants.INTENTS if file_exists(constants.INTENTS) else constants.EXAMPLE_INTENTS, 'r') as f:
     intents = json.load(f)
 
-FILE = 'example.data.pth'
+# FILE = 'example.data.pth'
+FILE = 'data.pth'
 data = torch.load(FILE)
 
 input_size = data['input_size']
@@ -46,7 +47,7 @@ def get_response(msg):
             for intent in intents['intents']:
                 if tag == intent['tag']:
                     return random.choice(intent["responses"])
-        return 'I do not understand...'
+        return ['I do not understand...']
         
 
 if __name__ == '__main__':
@@ -55,4 +56,4 @@ if __name__ == '__main__':
         sentence = input('You: ')
         if sentence == 'quit':
             break
-    print(get_response(sentence))
+        for s in get_response(sentence): print(s)

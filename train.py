@@ -100,7 +100,8 @@ data = {
     'tags': tags
 }
 
-FILE = 'example.data.pth'
+# FILE = 'example.data.pth'
+FILE = 'data.pth'
 torch.save(data, FILE)
 
 print(f'training complete. file save to {FILE}')

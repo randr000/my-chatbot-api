@@ -2,4 +2,5 @@
 env/
 intents.json
 data.pth
+intents.py
 __pycache__

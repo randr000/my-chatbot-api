@@ -3,17 +3,20 @@ import json
 import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
-import constants
-from misc_utils import file_exists
+from misc_utils import file_exists, set_intents_env
+
+INTENTS_FILE, DATA_FILE = set_intents_env()
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open(constants.INTENTS if file_exists(constants.INTENTS) else constants.EXAMPLE_INTENTS, 'r') as f:
-    intents = json.load(f)
+if file_exists(INTENTS_FILE):
+    with open(INTENTS_FILE, 'r') as f:
+        intents = json.load(f)
+else: raise Exception(f'The intents file named {INTENTS_FILE} cannot be found.')
 
-# FILE = 'example.data.pth'
-FILE = 'data.pth'
-data = torch.load(FILE)
+if file_exists(DATA_FILE):
+    data = torch.load(DATA_FILE)
+else: raise Exception(f'The data model at {DATA_FILE} cannot be found.')
 
 input_size = data['input_size']
 hidden_size = data['hidden_size']

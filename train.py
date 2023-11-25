@@ -5,11 +5,14 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from model import NeuralNet
-import constants
-from misc_utils import file_exists
+from misc_utils import file_exists, set_intents_env
 
-with open(constants.INTENTS if file_exists(constants.INTENTS) else constants.EXAMPLE_INTENTS, 'r') as f:
-    intents = json.load(f)
+INTENTS_FILE, DATA_FILE = set_intents_env()
+
+if file_exists(INTENTS_FILE):
+    with open(INTENTS_FILE, 'r') as f:
+        intents = json.load(f)
+else: raise Exception(f'The intents file named {INTENTS_FILE} cannot be found.')
 
 all_words = []
 tags = []
@@ -100,8 +103,6 @@ data = {
     'tags': tags
 }
 
-# FILE = 'example.data.pth'
-FILE = 'data.pth'
-torch.save(data, FILE)
+torch.save(data, DATA_FILE)
 
-print(f'training complete. file save to {FILE}')
+print(f'training complete. file save to {DATA_FILE}')

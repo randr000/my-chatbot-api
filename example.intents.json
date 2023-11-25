@@ -25,6 +25,13 @@
           ["Have a nice day"],
           ["Bye!", "Come back again soon."]
         ]
+      },
+      {
+        "tag": "name",
+        "patterns": ["What is your name?"],
+        "responses": [
+          ["My name is bot"]
+        ]
       }
     ]
   }

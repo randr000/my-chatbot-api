@@ -11,3 +11,4 @@ In order to make editing the intents file easier, I created an intents.py file w
 <code>python3 intents_to_json.py</code>
 
 ### Chatbot
+The chatbot is trained using a bag-of-words model. It is also stateless which means it will not remember what you previously wrote to determine a response. The bot is also not storing conversations anywhere and is not being trained with the text a user inputs.

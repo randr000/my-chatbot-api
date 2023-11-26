@@ -10,3 +10,4 @@ In order to make editing the intents file easier, I created an intents.py file w
 
 <code>python3 intents_to_json.py</code>
 
+### Chatbot

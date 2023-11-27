@@ -29,6 +29,6 @@ The model will be saved in the data.pth file as long as the INTENTS_ENV environm
 It will use the model in the data.pth file if the INTENTS_ENV environment variable is set to 'prod'. If it is set to 'dev', then it will used the model saved in the example.data.pth file.
 <div style="text-align: center;"><img src="./readme_img/chat-py.png" style="margin-top: 5px;margin-left: auto; margin-right: auto; display: block;"></div>
 10. You can test the api locally and connect it to your front-end app by typing the following in the terminal:<br><code>$ python3 app.py</code><br>
-The api enpoint will be 'http://\<localhost or 127.0.0.1\>:5000/api/predict'.
+The api enpoint will be 'http://&lt;localhost or 127.0.0.1&gt;:5000/api/predict'.
 If you would like to run with gunicorn, type the following in the terminal and hit enter:<br><code>bash start_server.sh</code><br>
-If you run this in a remote server, the api enpoint would be 'http://\<remote hostname or ip address\>:5000/api/predict'.
+If you run this in a remote server, the api enpoint would be 'http://&lt;remote hostname or ip address&gt;:5000/api/predict'.

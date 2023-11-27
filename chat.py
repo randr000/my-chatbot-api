@@ -59,4 +59,4 @@ if __name__ == '__main__':
         sentence = input('You: ')
         if sentence == 'quit':
             break
-        for s in get_response(sentence): print(s)
+        for s in get_response(sentence): print(f'Bot: {s}')

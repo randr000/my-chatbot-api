@@ -4,6 +4,7 @@ import torch
 from model import NeuralNet
 from nltk_utils import bag_of_words, tokenize
 from misc_utils import file_exists, set_intents_env
+from constants import CONTACT_EMAIL
 
 INTENTS_FILE, DATA_FILE = set_intents_env()
 
@@ -50,7 +51,11 @@ def get_response(msg):
             for intent in intents['intents']:
                 if tag == intent['tag']:
                     return random.choice(intent["responses"])
-        return ['I do not understand...']
+        return [
+            'I do not understand...',
+            'If you feel your question is something I should have been able to answer or the answer was inappropriate,',
+            f'please send an email to <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.'
+            ]
         
 
 if __name__ == '__main__':

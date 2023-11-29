@@ -3,4 +3,6 @@ env/
 intents.json
 data.pth
 intents.py
+start_prod_serv.sh
+*.save
 __pycache__
